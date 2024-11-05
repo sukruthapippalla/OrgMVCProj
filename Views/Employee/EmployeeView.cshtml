@@ -1,0 +1,47 @@
+﻿@model IEnumerable<OrgMVC.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+<h1>EmployeeView</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeptId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.EmpId }) |
+                @Html.ActionLink("Details", "Details", new {id=item.EmpId}) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.EmpId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
